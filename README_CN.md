@@ -73,10 +73,10 @@ anylabeling
 ![image-20250315135548616](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135548616.png)
 
 选择一个你想要的模型，模型是自动从Huggingface下载的，如果失败，你可以使用我的网盘下载，我提供了sam2_hiera的tiny、small、base+三种规模的模型，对应的就是软件中的前三个模型，后面几个模型规模有点大我这边不提供下载，如果需要可以自行在Huggingface下载
-
-通过网盘分享的文件：anylabeling模型
-链接: https://pan.baidu.com/s/1c9CN3MkAUyAHa6p_zL7zRw?pwd=2dw5 提取码: 2dw5
-模型下载好后，放入C:/Users/你的用户名/anylabeling_data/models中即可。
+<br/>
+通过网盘分享的文件：anylabeling模型<br/>
+链接: https://pan.baidu.com/s/1c9CN3MkAUyAHa6p_zL7zRw?pwd=2dw5 提取码: 2dw5<br/>
+模型下载好后，放入C:/Users/你的用户名/anylabeling_data/models中即可。<br/>
 
 
 ![image-20250315135613385](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135613385.png)
