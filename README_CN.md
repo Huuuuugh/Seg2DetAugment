@@ -79,7 +79,7 @@ anylabeling
 模型下载好后，放入C:/Users/你的用户名/anylabeling_data/models中即可。<br/>
 
 
-![image-20250315135613385](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135613385.png)
+![image-20250317144456926](images/README_CN/image-20250317144456926.png)
 
 然后点+Point按钮，点击物体即可
 
