@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+Seg2DetAugment/__init__.py
+Seg2DetAugment/augment.py
+Seg2DetAugment.egg-info/PKG-INFO
+Seg2DetAugment.egg-info/SOURCES.txt
+Seg2DetAugment.egg-info/dependency_links.txt
+Seg2DetAugment.egg-info/requires.txt
+Seg2DetAugment.egg-info/top_level.txt
