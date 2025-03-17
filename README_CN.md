@@ -1,11 +1,12 @@
 # Seg2DetAugment
-
+<div align='center'>
+ 
  [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DetAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DetAugment/python-publish.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
 
 中文 ｜  [English ](https://github.com/Huuuuugh/Seg2DetAugment/blob/main/README.md)
 
 ![](images/README/image-20250315125957393-17420166284586.png)
-
+</div>
 ### 概述
 
 Seg2DetAugment 是一个 Python 包，用于将语义分割数据转换为目标检测数据，并提供高级数据增强功能。该工具通过旋转、背景替换等操作，生成具有旋转不变性和复杂背景适应性的检测数据集，有效提升模型在复杂场景下的鲁棒性。
