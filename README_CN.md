@@ -32,7 +32,8 @@ pip install Seg2DetAugment
 
 ## 数据集制作
 
-安装anylabeling
+
+准备好你的anaconda，安装anylabeling，**记住python版本要是3.10哦**，小于3.10的版本的anylabeling无法运行
 
 ```
 conda create -n anylabeling python=3.10 anaconda
