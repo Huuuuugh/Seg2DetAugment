@@ -1,6 +1,6 @@
-# Seg2DecAugment
+# Seg2DetAugment
 
- [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DecAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DetAugment/python-publish.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
+ [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DetAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DetAugment/python-publish.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
 
 中文 ｜  [English ](https://github.com/Huuuuugh/Seg2DetAugment/blob/main/README.md)
 
@@ -8,7 +8,7 @@
 
 ### 概述
 
-Seg2DecAugment 是一个 Python 包，用于将语义分割数据转换为目标检测数据，并提供高级数据增强功能。该工具通过旋转、背景替换等操作，生成具有旋转不变性和复杂背景适应性的检测数据集，有效提升模型在复杂场景下的鲁棒性。
+Seg2DetAugment 是一个 Python 包，用于将语义分割数据转换为目标检测数据，并提供高级数据增强功能。该工具通过旋转、背景替换等操作，生成具有旋转不变性和复杂背景适应性的检测数据集，有效提升模型在复杂场景下的鲁棒性。
 
 在进行目标检测任务时，背景通常会成为影响我们识别的准确性，例如，模型有时候会把背景识别成 某件物体、两个物体相互遮挡掉一部分而识别错误等，并且**卷积神经神经网络的旋转适应性有局限，缺乏显式的旋转不变性机制**，也就是说，在物体出现旋转的摆放情况下，通常会变得难以识别、置信度低下等问题，如果你试过市面上的旋转增强方法，你会发现它们都会有bbox莫名其妙变大的bug，这个是无法避免的，只有已知物体轮廓的情况下旋转才能保证bbox仍然是外接矩形，因此需要提出一种数据集增强的方法，向模型提供一个物体在不同背景下的表现情况，以及物体在不同旋转角情况下的状态。
 
