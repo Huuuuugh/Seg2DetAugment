@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="Seg2DetAugment",
-    version="0.0.2",
+    version="0.0.1",
     author="XavierHugh",
     author_email="2396392765@qq.com",
     description="A data augmentation package for converting segmentation data to detection data.",
