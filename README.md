@@ -1,11 +1,12 @@
 # Seg2DetAugment
+<div align="center">
 
  [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DetAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DetAugment/python-publish.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
 
 [中文](https://github.com/Huuuuugh/Seg2DetAugment/blob/main/README_CN.md) ｜  English 
 
 ![](images/README/image-20250315125957393-17420166284586.png)
-
+</div>
 ### Overview
 
 Seg2DetAugment is a Python package used for converting semantic segmentation data into object detection data and providing advanced data augmentation functions. Through operations such as rotation and background replacement, this tool generates a detection dataset with rotational invariance and adaptability to complex backgrounds, effectively enhancing the robustness of the model in complex scenarios.
