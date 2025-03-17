@@ -1,6 +1,6 @@
-# Seg2DecAugment
+# Seg2DetAugment
 
- [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DecAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DetAugment/python-publish.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
+ [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DetAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DetAugment/python-publish.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
 
 [中文](https://github.com/Huuuuugh/Seg2DetAugment/blob/main/README_CN.md) ｜  English 
 
@@ -8,7 +8,7 @@
 
 ### Overview
 
-Seg2DecAugment is a Python package used for converting semantic segmentation data into object detection data and providing advanced data augmentation functions. Through operations such as rotation and background replacement, this tool generates a detection dataset with rotational invariance and adaptability to complex backgrounds, effectively enhancing the robustness of the model in complex scenarios.
+Seg2DetAugment is a Python package used for converting semantic segmentation data into object detection data and providing advanced data augmentation functions. Through operations such as rotation and background replacement, this tool generates a detection dataset with rotational invariance and adaptability to complex backgrounds, effectively enhancing the robustness of the model in complex scenarios.
 
 When performing object detection tasks, the background often affects the accuracy of our recognition. For example, the model sometimes misidentifies the background as an object, or makes recognition errors when two objects partially occlude each other. Moreover, **convolutional neural networks have limitations in rotational adaptability and lack an explicit rotational invariance mechanism**. That is to say, when objects are placed in a rotated position, they usually become difficult to recognize, and the confidence level is low, etc. If you have tried the rotation augmentation methods available on the market, you will find that they all have the bug that the bounding box (bbox) inexplicably becomes larger. This is inevitable. Only when the contour of the object is known can rotation ensure that the bbox remains the circumscribed rectangle. Therefore, it is necessary to propose a dataset augmentation method to provide the model with the performance of an object under different backgrounds and the state of the object at different rotation angles.
 
