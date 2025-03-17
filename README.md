@@ -1,175 +1,109 @@
 # Seg2DecAugment
 
- [![PyPI](https://img.shields.io/pypi/v/Seg2DecAugment.svg)](https://pypi.org/project/Seg2DecAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DecAugment/ci.yml?branch=main)](https://github.com/Huuuuugh/Seg2DecAugment/actions)
+ [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DecAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DecAugment/ci.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
 
-## 中文介绍
+[中文](https://github.com/Huuuuugh/Seg2DetAugment/blob/main/README_CN.md) ｜  English 
 
-### 概述
+![](images/README/image-20250315125957393-17420166284586.png)
 
-Seg2DecAugment 是一个 Python 包，用于将语义分割数据转换为目标检测数据，并提供高级数据增强功能。该工具通过旋转、背景替换等操作，生成具有旋转不变性和复杂背景适应性的检测数据集，有效提升模型在复杂场景下的鲁棒性。
+### Overview
 
-### 核心优势
+Seg2DecAugment is a Python package used for converting semantic segmentation data into object detection data and providing advanced data augmentation functions. Through operations such as rotation and background replacement, this tool generates a detection dataset with rotational invariance and adaptability to complex backgrounds, effectively enhancing the robustness of the model in complex scenarios.
 
-1. **旋转不变性增强**：通过轮廓追踪技术保持旋转后边界框的精准性
-2. **复杂背景适配**：支持动态背景替换和多物体叠加
-3. **标注效率提升**：只需少量语义分割标注即可生成大规模检测数据集
+When performing object detection tasks, the background often affects the accuracy of our recognition. For example, the model sometimes misidentifies the background as an object, or makes recognition errors when two objects partially occlude each other. Moreover, **convolutional neural networks have limitations in rotational adaptability and lack an explicit rotational invariance mechanism**. That is to say, when objects are placed in a rotated position, they usually become difficult to recognize, and the confidence level is low, etc. If you have tried the rotation augmentation methods available on the market, you will find that they all have the bug that the bounding box (bbox) inexplicably becomes larger. This is inevitable. Only when the contour of the object is known can rotation ensure that the bbox remains the circumscribed rectangle. Therefore, it is necessary to propose a dataset augmentation method to provide the model with the performance of an object under different backgrounds and the state of the object at different rotation angles.
 
-### 典型应用场景
+### Core Advantages
 
-- 工业质检中的多角度物体检测
-- 垃圾分类场景的复杂背景适应
-- 遥感图像的多姿态目标识别
+1. **Enhanced Rotational Invariance**: Maintains the accuracy of the bounding box after rotation through contour tracing technology.
+2. **Adaptability to Complex Backgrounds**: Supports dynamic background replacement and the superposition of multiple objects.
+3. **Improved Annotation Efficiency**: Only a small amount of semantic segmentation annotation is required to generate a large-scale detection dataset.
 
-### 安装方法
+### Typical Application Scenarios
+
+- Multi-angle object detection in industrial quality inspection.
+- Adaptation to complex backgrounds in the scenario of garbage classification.
+- Recognition of multi-pose targets in remote sensing images.
+
+### Installation Method
 
 ```bash
-pip install Seg2DecAugment
+pip install Seg2DetAugment
 ```
 
-## 数据集制作
+## Making Dataset
 
-安装anylabeling
+Install Anylabeling.
 
 ```
-COPYconda create -n anylabeling python=3.8 anaconda
+conda create -n anylabeling python=3.8 anaconda
 conda activate anylabeling
 ```
 
 CPU：
 
 ```
-COPYpip install anylabeling
+pip install anylabeling
 ```
 
 GPU:
 
 ```
-COPYpip install anylabeling-gpu
+pip install anylabeling-gpu
 ```
 
-安装完毕后使用指令运行
+After the installation is completed, run it using the command.
 
 ```
-COPYanylabeling
-```
-
-在你下次需要执行的时候，你只需要这样做
-
-```
-COPYconda activate anylabeling
 anylabeling
 ```
 
-准备好你要标注的图片文件夹，点击这里选择你的图片文件夹
+When you need to execute it next time, you just need to do this.
+
+```
+conda activate anylabeling
+anylabeling
+```
+
+Prepare the folder containing the images you want to annotate, and click here to select your image folder.
 
 ![image-20250315135502879](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135502879.png)
 
-然后点击这个大脑，开启SAM标注
+Then click on this icon of the brain to start the SAM (Segment Anything Model) annotation.
 
 ![image-20250315135548616](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135548616.png)
 
-选择一个你想要的模型，模型是自动从网上下载的，如果失败请使用特殊方法下载（本文不介绍）
+Select a model you want. The model will be automatically downloaded from the internet.
 
 ![image-20250315135613385](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135613385.png)
 
-然后点+Point按钮，点击物体即可
+Then click the "+Point" button and just click on the object.
 
 ![image-20250315135828523](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135828523.png)
 
-没问题就点击finish，如果有问题，可以用-Point在误标记的地方点击，它会自动重新计算。![image-20250315135848748](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135848748.png)
+If the calculated boundary curve meets your requirements, click "finish". If there are any issues, you can click on the wrongly marked area with the "-Point" button, and it will automatically recalculate.![image-20250315135848748](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135848748.png)
 
-写入你希望的名称，同一个物体的名称必须相同
+Enter the name you want. The names for the same object must be identical.
 
 ![image-20250315135959313](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135959313.png)
 
-完成所有标记后，请你所有标签和图片将会存放在同一个文件夹内，像我这样子
+After completing all the markings, all your labels and images will be saved in the same folder, just like this.
 
 ![image-20250315140118317](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315140118317.png)
 
-然后，像我这样准备几张空白的背景图，背景图请尽可能制造一些差异。
+Then, prepare several blank background images like I do. Please try to create some differences among these background images as much as possible.
 
-### 快速开始
-
-```python
-from Seg2DecAugment import data_augmentation
-
-# 定义类别映射
-dics = {
-    'battery': 0,
-    'bottle': 1,
-    # ... 其他类别
-}
-
-# 运行数据增强
-data_augmentation(
-    dics=dics,
-    output_folder="output",
-    path2labels="path/to/labels",
-    path2imgs="path/to/images",
-    path2bkgs="path/to/backgrounds",
-    counts=3,        # 每张图像对象数量
-    threshold=0.5,   # 重叠阈值
-    num_images=100   # 生成图像总数
-)
-```
-
-### 输出结构
-
-```plaintext
-output/
-├── label/
-│   ├── 0.txt
-│   └── ...
-└── img/
-    ├── 0.jpg
-    └── ...
-```
-
-### 参数说明
-
-| 参数名          | 描述               | 默认值 |
-| --------------- | ------------------ | ------ |
-| `dics`          | 类别标签映射       | 必需   |
-| `output_folder` | 输出目录路径       | 必需   |
-| `path2labels`   | 输入分割标签路径   | 必需   |
-| `path2imgs`     | 输入原图路径       | 必需   |
-| `path2bkgs`     | 背景图像路径       | 必需   |
-| `counts`        | 单图最大物体数     | 3      |
-| `threshold`     | 重叠检测阈值 (IOU) | 0.5    |
-| `num_images`    | 生成图像总数       | 100    |
-
-### Overview
-
-Seg2DecAugment is a Python package for converting semantic segmentation data into object detection datasets with advanced augmentation capabilities. It generates rotation-invariant and complex-background-adaptive detection datasets through operations like rotation and background replacement, significantly improving model robustness in challenging scenarios.
-
-### Key Advantages
-
-1. **Rotation Invariance**：Maintains precise bounding boxes after rotation using contour tracking
-2. **Complex Background Adaptation**：Supports dynamic background replacement and multi-object overlay
-3. **Annotation Efficiency**：Generates large-scale detection datasets from minimal segmentation annotations
-
-### Typical Use Cases
-
-- Multi-angle industrial quality inspection
-- Complex background adaptation for waste sorting
-- Multi-pose object recognition in remote sensing images
-
-### Installation
-
-```bash
-pip install Seg2DecAugment
-```
+![img-bkg](images/README/image-20250317101533565.png)
 
 ### Quick Start
 
 ```python
-from Seg2DecAugment import data_augmentation
+from Seg2DetAugment import data_augmentation
 
-# Define class mappings
+# Define the category mapping
 dics = {
     'battery': 0,
     'bottle': 1,
-    # ... other classes
+    # ... Other categories
 }
 
 # Run data augmentation
@@ -179,9 +113,9 @@ data_augmentation(
     path2labels="path/to/labels",
     path2imgs="path/to/images",
     path2bkgs="path/to/backgrounds",
-    counts=3,        # Max objects per image
+    counts=3,        # Number of objects per image
     threshold=0.5,   # Overlap threshold
-    num_images=100   # Total images to generate
+    num_images=100   # Total number of generated images
 )
 ```
 
@@ -199,24 +133,29 @@ output/
 
 ### Parameter Explanation
 
+| Parameter Name  | Description                                 | Default Value |
+| --------------- | ------------------------------------------- | ------------- |
+| `dics`          | Mapping of category labels                  | Required      |
+| `output_folder` | Path of the output directory                | Required      |
+| `path2labels`   | Path of the input segmentation labels       | Required      |
+| `path2imgs`     | Path of the input original images           | Required      |
+| `path2bkgs`     | Path of the background images               | Required      |
+| `counts`        | Maximum number of objects in a single image | 3             |
+| `threshold`     | Overlap detection threshold (IOU)           | 0.5           |
+| `num_images`    | Total number of generated images            | 100           |
 
+### Detailed Explanation of `threshold`
 
-| Parameter       | Description                         | Default  |
-| --------------- | ----------------------------------- | -------- |
-| `dics`          | Class label mappings                | required |
-| `output_folder` | Output directory path               | required |
-| `path2labels`   | Path to input segmentation labels   | required |
-| `path2imgs`     | Path to input original images       | required |
-| `path2bkgs`     | Path to background images           | required |
-| `counts`        | Maximum objects per generated image | 3        |
-| `threshold`     | Overlap detection threshold (IOU)   | 0.5      |
-| `num_images`    | Total number of images to generate  | 100      |
+The following is an example to explain the function of `threshold`.
 
+![](images/README/image-20250315143211638.png)
 
+As shown in the figure, there is actually a strip of radish inside the purple box, but it is completely (100%) occluded by a mineral water bottle and a Fanta bottle. If this dataset is used for training an object detection model, the consequences will be disastrous. Therefore, the function of the `threshold` is to ensure that at least 50% of the area of each object is visible. That is to say, occlusion is allowed, but the maximum occlusion rate is 50%, not 100%.
 
-### 许可证/Licence
+Set `threshold` to the occlusion rate you want. For example, when `threshold = 0.5`, the generated result will be much more satisfactory.
 
+![](images/README/image-20250315143420850.png)
 
+### Licence
 
-本项目采用 MIT 许可证 开源。
-
+This project is open source under the MIT License.
