@@ -35,7 +35,7 @@ pip install Seg2DetAugment
 安装anylabeling
 
 ```
-conda create -n anylabeling python=3.8 anaconda
+conda create -n anylabeling python=3.10 anaconda
 conda activate anylabeling
 ```
 
