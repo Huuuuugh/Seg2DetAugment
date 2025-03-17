@@ -7,6 +7,7 @@
 
 ![](images/README/image-20250315125957393-17420166284586.png)
 </div>
+
 ### Overview
 
 Seg2DetAugment is a Python package used for converting semantic segmentation data into object detection data and providing advanced data augmentation functions. Through operations such as rotation and background replacement, this tool generates a detection dataset with rotational invariance and adaptability to complex backgrounds, effectively enhancing the robustness of the model in complex scenarios.
