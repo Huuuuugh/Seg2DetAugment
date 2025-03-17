@@ -1,6 +1,6 @@
 # Seg2DecAugment
 
- [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DecAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DecAugment/ci.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
+ [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DecAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DetAugment/python-publish.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
 
 中文 ｜  [English ](https://github.com/Huuuuugh/Seg2DetAugment/blob/main/README.md)
 
