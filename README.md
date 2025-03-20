@@ -68,29 +68,29 @@ anylabeling
 
 Prepare the folder containing the images you want to annotate, and click here to select your image folder.
 
-![image-20250315135502879](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135502879.png)
+![image-20250315135502879](https://www.huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135502879.png)
 
 Then click on this icon of the brain to start the SAM (Segment Anything Model) annotation.
 
-![image-20250315135548616](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135548616.png)
+![image-20250315135548616](https://www.huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135548616.png)
 
 Select a model you want. The model will be automatically downloaded from the internet.
 
-![image-20250315135613385](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135613385.png)
+![image-20250315135613385](https://www.huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135613385.png)
 
 Then click the "+Point" button and just click on the object.
 
-![image-20250315135828523](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135828523.png)
+![image-20250315135828523](https://www.huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135828523.png)
 
-If the calculated boundary curve meets your requirements, click "finish". If there are any issues, you can click on the wrongly marked area with the "-Point" button, and it will automatically recalculate.![image-20250315135848748](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135848748.png)
+If the calculated boundary curve meets your requirements, click "finish". If there are any issues, you can click on the wrongly marked area with the "-Point" button, and it will automatically recalculate.![image-20250315135848748](https://www.huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135848748.png)
 
 Enter the name you want. The names for the same object must be identical.
 
-![image-20250315135959313](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135959313.png)
+![image-20250315135959313](https://www.huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315135959313.png)
 
 After completing all the markings, all your labels and images will be saved in the same folder, just like this.
 
-![image-20250315140118317](https://huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315140118317.png)
+![image-20250315140118317](https://www.huugh.cn/images/%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E7%9A%84%E5%8A%9E%E6%B3%95%E5%A2%9E%E5%BC%BA%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/image-20250315140118317.png)
 
 Then, prepare several blank background images like I do. Please try to create some differences among these background images as much as possible.
 
