@@ -121,6 +121,42 @@ data_augmentation(
 )
 ```
 
+The results after visualizing the labels and images:
+
+![image-20250320162210013](images/README/image-20250320162210013.png)
+
+### You can also augment the data with key points.
+
+After annotating the key points in JSON format using LabelMe,
+
+```python
+from Seg2DetAugment import data_augmentation
+
+# Define the class mapping
+dics = {
+    'ruler': 0,
+}
+
+pointOrder=["acute_angle","right_angle"] # The order of the key points
+
+# Run data augmentation
+data_augmentation(
+    dics=dics,
+    output_folder="output",
+    path2labels="path/to/labels",
+    path2imgs="path/to/images",
+    path2bkgs="path/to/backgrounds",
+    counts=3,        # The number of objects per image
+    threshold=0.5,   # Overlap threshold
+    num_images=100,   # The total number of generated images
+    pointOrder=pointOrder # Array of the order of key points
+)
+```
+
+The augmentation effect is as follows
+
+![image-20250320162426899](images/README/image-20250320162426899.png)
+
 ### Output Structure
 
 ```plaintext
@@ -135,16 +171,17 @@ output/
 
 ### Parameter Explanation
 
-| Parameter Name  | Description                                 | Default Value |
-| --------------- | ------------------------------------------- | ------------- |
-| `dics`          | Mapping of category labels                  | Required      |
-| `output_folder` | Path of the output directory                | Required      |
-| `path2labels`   | Path of the input segmentation labels       | Required      |
-| `path2imgs`     | Path of the input original images           | Required      |
-| `path2bkgs`     | Path of the background images               | Required      |
-| `counts`        | Maximum number of objects in a single image | 3             |
-| `threshold`     | Overlap detection threshold (IOU)           | 0.5           |
-| `num_images`    | Total number of generated images            | 100           |
+| Parameter Name         | Description                                 | Default Value |
+| ---------------------- | ------------------------------------------- | ------------- |
+| `dics`                 | Mapping of category labels                  | Required      |
+| `output_folder`        | Path of the output directory                | Required      |
+| `path2labels`          | Path of the input segmentation labels       | Required      |
+| `path2imgs`            | Path of the input original images           | Required      |
+| `path2bkgs`            | Path of the background images               | Required      |
+| `counts`               | Maximum number of objects in a single image | 3             |
+| `threshold`            | Overlap detection threshold (IOU)           | 0.5           |
+| `num_images`           | Total number of generated images            | 100           |
+| `pointOrder` *keypoint | Array of the order of key points            | []            |
 
 ### Detailed Explanation of `threshold`
 

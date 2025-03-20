@@ -1,6 +1,6 @@
 # Seg2DetAugment
 <div align='center'>
- 
+
  [![PyPI](https://img.shields.io/pypi/v/Seg2DetAugment.svg)](https://pypi.org/project/Seg2DetAugment/) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Huuuuugh/Seg2DetAugment/python-publish.yml?branch=main)](https://github.com/Huuuuugh/Seg2DetAugment/actions)
 
 中文 ｜  [English ](https://github.com/Huuuuugh/Seg2DetAugment/blob/main/README.md)
@@ -127,6 +127,42 @@ data_augmentation(
 )
 ```
 
+将标签和图像可视化后的结果：
+
+![image-20250320162210013](images/README_CN/image-20250320162210013.png)
+
+### *你还可以对带关键点的数据进行增强
+
+在使用labelme标注好json格式的关键点后，
+
+```python
+from Seg2DetAugment import data_augmentation
+
+# 定义类别映射
+dics = {
+    'chizi': 0,
+}
+
+pointOrder=["ruijiao","zhijiao"] #关键点的顺序
+
+# 运行数据增强
+data_augmentation(
+    dics=dics,
+    output_folder="output",
+    path2labels="path/to/labels",
+    path2imgs="path/to/images",
+    path2bkgs="path/to/backgrounds",
+    counts=3,        # 每张图像对象数量
+    threshold=0.5,   # 重叠阈值
+    num_images=100,   # 生成图像总数
+    pointOrder=pointOrder #关键点顺序数组
+)
+```
+
+增强效果如下
+
+![image-20250320162426899](images/README_CN/image-20250320162426899.png)
+
 ### 输出结构
 
 ```plaintext
@@ -141,16 +177,17 @@ output/
 
 ### 参数说明
 
-| 参数名          | 描述               | 默认值 |
-| --------------- | ------------------ | ------ |
-| `dics`          | 类别标签映射       | 必需   |
-| `output_folder` | 输出目录路径       | 必需   |
-| `path2labels`   | 输入分割标签路径   | 必需   |
-| `path2imgs`     | 输入原图路径       | 必需   |
-| `path2bkgs`     | 背景图像路径       | 必需   |
-| `counts`        | 单图最大物体数     | 3      |
-| `threshold`     | 重叠检测阈值 (IOU) | 0.5    |
-| `num_images`    | 生成图像总数       | 100    |
+| 参数名                        | 描述               | 默认值 |
+| ----------------------------- | ------------------ | ------ |
+| `dics`                        | 类别标签映射       | 必需   |
+| `output_folder`               | 输出目录路径       | 必需   |
+| `path2labels`                 | 输入分割标签路径   | 必需   |
+| `path2imgs`                   | 输入原图路径       | 必需   |
+| `path2bkgs`                   | 背景图像路径       | 必需   |
+| `counts`                      | 单图最大物体数     | 3      |
+| `threshold`                   | 重叠检测阈值 (IOU) | 0.5    |
+| `num_images`                  | 生成图像总数       | 100    |
+| `pointOrder` * 关键点检测增强 | 关键点顺序数组     | []     |
 
 ### threshold详解
 
