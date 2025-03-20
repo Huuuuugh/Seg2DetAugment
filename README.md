@@ -157,6 +157,22 @@ The augmentation effect is as follows
 
 ![image-20250320162426899](images/README/image-20250320162426899.png)
 
+### *If you want to generate within the specified background area
+
+Outline the area in the background image like this.
+
+![image-20250320222048329](images/README/image-20250320222048329.png)
+
+file structure
+
+![image-20250320222127013](images/README/image-20250320222127013.png)
+
+It will only be generated within the selected area.
+
+When `forceScale` is set to False, the size of the object will not be scaled proportionally according to the selected area. However, please note that this may lead to an error. When the object itself is larger than the background area you selected, it will cause an error because the object cannot fit into the background.
+
+When `forceScale` is set to True, the object will be automatically scaled according to the range of the newly selected frame background. The object will become smaller, and there will be no error.
+
 ### Output Structure
 
 ```plaintext
@@ -171,17 +187,18 @@ output/
 
 ### Parameter Explanation
 
-| Parameter Name         | Description                                 | Default Value |
-| ---------------------- | ------------------------------------------- | ------------- |
-| `dics`                 | Mapping of category labels                  | Required      |
-| `output_folder`        | Path of the output directory                | Required      |
-| `path2labels`          | Path of the input segmentation labels       | Required      |
-| `path2imgs`            | Path of the input original images           | Required      |
-| `path2bkgs`            | Path of the background images               | Required      |
-| `counts`               | Maximum number of objects in a single image | 3             |
-| `threshold`            | Overlap detection threshold (IOU)           | 0.5           |
-| `num_images`           | Total number of generated images            | 100           |
-| `pointOrder` *keypoint | Array of the order of key points            | []            |
+| Parameter Name         | Description                                                  | Default Value |
+| ---------------------- | ------------------------------------------------------------ | ------------- |
+| `dics`                 | Mapping of category labels                                   | Required      |
+| `output_folder`        | Path of the output directory                                 | Required      |
+| `path2labels`          | Path of the input segmentation labels                        | Required      |
+| `path2imgs`            | Path of the input original images                            | Required      |
+| `path2bkgs`            | Path of the background images                                | Required      |
+| `counts`               | Maximum number of objects in a single image                  | 3             |
+| `threshold`            | Overlap detection threshold (IOU)                            | 0.5           |
+| `num_images`           | Total number of generated images                             | 100           |
+| `pointOrder` *keypoint | Array of the order of key points                             | []            |
+| `forceScale`           | Force the object to scale proportionally to match the range of the box-selected background. | True          |
 
 ### Detailed Explanation of `threshold`
 
