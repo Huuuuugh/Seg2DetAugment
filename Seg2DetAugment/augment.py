@@ -32,9 +32,18 @@ def rotate(image, angle):
     return rotated_image, rotation_matrix
 
 
-def insert(bkg, img):
-    x = random.randint(0, bkg.shape[1] - img.shape[1])
-    y = random.randint(0, bkg.shape[0] - img.shape[0])
+def insert(bkg, img,bounding):
+    if(bounding is None):
+        p1x,p1y,p2x,p2y=0,0,bkg.shape[1],bkg.shape[0]
+    else:
+        p1x,p1y = bounding[0]
+        p2x,p2y = bounding[1]
+    #print(p1x,p1y,p2x,p2y)
+    #print((int(p1x), -img.shape[1]+int(p2x)))
+    if int(p1x) > int(p2x)-img.shape[1] or int(p1y) > int(p2y)-img.shape[0]:
+        raise ValueError("你划定的背景区域太小啦，放不下这些物体！你可以增加一下背景的区域大小，或者是令forceScale=True让程序强制放缩一下你的物体吧！")
+    x = random.randint(int(p1x), int(p2x)-img.shape[1])
+    y = random.randint(int(p1y), int(p2y)-img.shape[0])
     mb = img[:, :, 0]
     mg = img[:, :, 1]
     mr = img[:, :, 2]
@@ -103,9 +112,12 @@ def delete_folder(path):
 
 
 def loadLabel(f):
-    with open(f, 'r', encoding='utf-8') as file:
-        data = json.load(file)
-    return data
+    try:
+        with open(f, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+        return data
+    except:
+        return None
 
 
 def checkIOU(bboxes, threshold=0.5):
@@ -199,7 +211,7 @@ def rotate_points(points, rotation_matrix):
 
 
 def data_augmentation(dics, output_folder, path2labels, path2imgs, path2bkgs, counts=3, threshold=0.5, num_images=100,
-                      pointOrder=[]):
+                      pointOrder=[],forceScale=True):
     delete_folder(output_folder)
     os.mkdir(output_folder)
     os.mkdir(os.path.join(output_folder, "label"))
@@ -210,8 +222,15 @@ def data_augmentation(dics, output_folder, path2labels, path2imgs, path2bkgs, co
     delete_folder(os.path.join(path2bkgs, ".ipynb_checkpoints"))
 
     bkgs = []
+    boundingArea=[]
     for i in os.listdir(path2bkgs):
-        bkgs.append(cv2.imread(os.path.join(path2bkgs, i)))
+        if not i.endswith(".json"):
+            bkgs.append(cv2.imread(os.path.join(path2bkgs, i)))
+            js = loadLabel(os.path.join(path2bkgs, i.split('.')[0]+".json"))
+            if js is None:
+                boundingArea.append(None)
+            else:
+                boundingArea.append(js["shapes"][0]["points"])
 
     everythings = []
     alllabels = list(set([i.split('.')[0] for i in os.listdir(path2labels)]))
@@ -252,14 +271,23 @@ def data_augmentation(dics, output_folder, path2labels, path2imgs, path2bkgs, co
 
     for mj in range(num_images):
         while True:
+            bkgid = random.randint(0, len(bkgs) - 1)
             bboxs = []
-            bkg = np.array(random.choice(bkgs))
+            bkg = np.array(bkgs[bkgid])
+            bounding = boundingArea[bkgid]
             for _ in range(counts):
                 i = chooseEqually(everythings, dics)
                 bkgh, bkgw, _ = bkg.shape
                 img, pts = everythings[i].get()
-                resized, scale = resize_image(img, min(bkgw, bkgh))
-                bkg, (x, y,xx,yy,ww,hh) = insert(bkg, resized)
+                if bounding is None or not forceScale:
+                    resized, scale = resize_image(img, min(bkgw, bkgh))
+                else:
+                    p1x, p1y = bounding[0]
+                    p2x, p2y = bounding[1]
+                    resized, scale = resize_image(img, min(p2x-p1x, p2y-p1y))
+                    #print("缩小")
+
+                bkg, (x, y,xx,yy,ww,hh) = insert(bkg, resized,bounding)
 
                 new_pts = []
                 for p in pts:

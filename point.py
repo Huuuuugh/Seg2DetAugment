@@ -11,8 +11,8 @@ pointOrder=["ruijiao","zhijiao"]
 data_augmentation(
     dics=dics,
     output_folder="output",
-    path2labels="lbs-1",
-    path2imgs="lbs-1",
+    path2labels="lbs-12",
+    path2imgs="lbs-12",
     path2bkgs="bkgs",
     counts=3,        # 每张图像对象数量
     threshold=0.5,   # 重叠阈值

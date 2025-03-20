@@ -24,5 +24,6 @@ data_augmentation(
     path2bkgs="bkgs",
     counts=3,        # 每张图像对象数量
     threshold=0.5,   # 重叠阈值
-    num_images=100   # 生成图像总数
+    num_images=100,   # 生成图像总数
+    forceScale=False
 )
