@@ -123,7 +123,7 @@ data_augmentation(
     path2bkgs="path/to/backgrounds",
     counts=3,        # 每张图像对象数量
     threshold=0.5,   # 重叠阈值
-    num_images=100   # 生成图像总数
+    num_images=100,   # 生成图像总数
     forceScale=True  # 强制缩放图像使其匹配选定的背景区域
 )
 ```
@@ -156,7 +156,7 @@ data_augmentation(
     counts=3,        # 每张图像对象数量
     threshold=0.5,   # 重叠阈值
     num_images=100,   # 生成图像总数
-    pointOrder=pointOrder #关键点顺序数组
+    pointOrder=pointOrder, #关键点顺序数组
     forceScale=True  # 强制缩放图像使其匹配选定的背景区域
 )
 ```
